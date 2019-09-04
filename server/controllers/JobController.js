@@ -22,7 +22,7 @@ export default class JobController {
 
   async getOne(req, res, next) {
     try {
-      let data = await _js.find(res.param.id)
+      let data = await _js.findById(req.params.id)
       if (!data) {
         throw new Error("Invalid ID")
       }
