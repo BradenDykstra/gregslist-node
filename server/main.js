@@ -39,11 +39,13 @@ server.use(bp.json())
 import CarController from './controllers/CarController'
 import HouseController from './controllers/HouseController'
 import JobController from './controllers/JobController';
+import ToasterController from './controllers/ToasterController';
 
 //NOTE remember the forward slash at the start of your path!
 server.use('/api/cars', new CarController().router)
 server.use('/api/houses', new HouseController().router)
 server.use('/api/jobs', new JobController().router)
+server.use('/api/toasters', new ToasterController().router)
 
 
 
