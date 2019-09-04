@@ -2,8 +2,12 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 const _model = new Schema({
-    title: { type: String, required: true },
-    description: { type: String, required: true },
+    make: { type: String, required: true },
+    model: { type: String, required: true },
+    price: { type: Number },
+    year: { type: Number },
+    imgUrl: { type: String },
+    description: { type: String }
 }, { timestamps: true })
 
 export default class CarService {
