@@ -46,9 +46,7 @@ export default class CarController {
                 return res.send(data)
             }
             throw new Error("invalid id")
-        } catch (error) {
-            next(error)
-        }
+        } catch (error) { next(error) }
     }
 
     async delete(req, res, next) {

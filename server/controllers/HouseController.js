@@ -19,24 +19,38 @@ export default class HouseController {
       return res.send(data)
     } catch (error) { next(error) }
   }
+
   async getOne(req, res, next) {
     try {
-
+      let data = await _hs.findById(req.params.id)
+      if (!data) {
+        throw new Error('That ID is invalid')
+      }
+      return res.send(data)
     } catch (error) { next(error) }
   }
+
   async create(req, res, next) {
     try {
-
+      let data = await _hs.create(req.body)
+      return res.send(data)
     } catch (error) { next(error) }
   }
+
   async edit(req, res, next) {
     try {
-
+      let data = await _hs.findOneAndUpdate({ _id: req.params.id, }, req.body, { new: true })
+      if (data) {
+        return res.send(data)
+      }
+      throw new Error('That ID is invalid')
     } catch (error) { next(error) }
   }
+
   async delete(req, res, next) {
     try {
-
+      let data = await _hs.findOneAndDelete(req.params.id)
+      return res.send(data)
     } catch (error) { next(error) }
   }
 
